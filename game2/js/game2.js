@@ -28,7 +28,7 @@ let eventTeclat = new window.keypress.Listener(this, configTeclat);
 
 eventTeclat.simple_combo('a', teclaA);
 eventTeclat.simple_combo('b', teclaB);
-eventTeclat.sequence_combo('up down a b', atacEspecial);
+eventTeclat.sequence_combo('a b', atacEspecial);
 
 function teclaA(){
     console.log('Has fet clit a la tecla A');
