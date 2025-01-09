@@ -1,2 +1,6 @@
+TEMARI
+------
 game1 -> setInterval
 game2 -> moviment per teclat 2 formes
+         -> amb js (game.js)
+         -> amb llibreria (keypress.js)
