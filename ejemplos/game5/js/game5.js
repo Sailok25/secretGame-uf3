@@ -69,7 +69,7 @@ let heroi = function(x, y){
     }
 
     this.puntuacio = function(){
-        ctx.font = "30px Arial";
+        ctx.font = "30px Impact";
         ctx.fillStyle = "grey";
         ctx.fillText("Score: " + this.x, 50, 50);
     }
@@ -97,6 +97,10 @@ function principal() {
 
     fantasma3.dibuixa('pacman/f-verde.png');
     fantasma3.mou(15);
+
+    pacman.dibuixa('img/pacman.png');
+
+    pacman.puntuacio();
 }
 
 function esborrarCanvas() {
