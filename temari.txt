@@ -9,6 +9,9 @@ game2 -> moviment per teclat 2 formes
 game3 -> moviment del personatge amb ratolí
       -> utilització de canvas
 
-game4 -> objecte d'un personatge en moviment
+game4 -> objecte personatge i diferents mètodes
+      -> dibuixar al canvas
 
-game5 -> 
+game5 -> utilitzat imatges al canvas
+      -> moure amb els events de teclat un protagonista
+      -> ficar un text al canvas
