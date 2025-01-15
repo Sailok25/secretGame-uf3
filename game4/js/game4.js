@@ -1,6 +1,7 @@
 // variables globals
 var canvas;
 var ctx;
+var fps = 5;
 
 document.addEventListener('DOMContentLoaded', inici);
 
@@ -10,8 +11,8 @@ let personatge = function(x, y, nom, color){
     this.nom = nom;
     this.color = color;
 
-    this.mou = function(){
-        this.x = 100 ;
+    this.mou = function(velocitat){
+        this.x += velocitat ;
     }
 
     this.saludo = function(){
@@ -32,13 +33,26 @@ function inici(){
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d'); 
 
-    personatge1.mou();
+    setInterval(principal, 1000/fps);
+}
+
+function principal(){
+    esborrarCanvas();
+
+    personatge1.mou(10);
     personatge1.dibuixa();
     personatge1.saludo();
 
+    personatge2.mou(50);
     personatge2.dibuixa();
     personatge2.saludo();
 
+    personatge3.mou(150);
     personatge3.dibuixa();
     personatge3.saludo();
+}
+
+function esborrarCanvas(){
+    canvas.width = 500;
+    canvas.heigh = 300;
 }
