@@ -56,3 +56,6 @@ function esborrarCanvas(){
     canvas.width = 500;
     canvas.heigh = 300;
 }
+
+function pararCanvas(){
+}
