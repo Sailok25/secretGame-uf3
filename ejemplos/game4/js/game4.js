@@ -11,6 +11,8 @@ let personatge = function (x, y, nom, color) {
     this.nom = nom;
     this.color = color;
 
+    this.dreta = true;
+
     this.mou = function (velocitat) {
         if (this.dreta == true){
             if (this.x < 470) {

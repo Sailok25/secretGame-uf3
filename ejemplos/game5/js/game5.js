@@ -5,11 +5,11 @@ var fps = 20;
 
 document.addEventListener('DOMContentLoaded', inici);
 
-let personatge = function (x, y, nom, color) {
+let fantasma = function (x, y) {
     this.x = x;
     this.y = y;
-    this.nom = nom;
-    this.color = color;
+
+    this.dreta = true;
 
     this.mou = function (velocitat) {
         if (this.dreta == true){
@@ -28,19 +28,17 @@ let personatge = function (x, y, nom, color) {
     }
 
 
-    this.saludo = function () {
-        console.log(`Hola! Soc ${this.nom}`);
-    }
+    this.dibuixa = function (imatge) {
+        fantasmaImg = new Image();
+        fantasmaImg.src = imatge;
 
-    this.dibuixa = function () {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, 30, 30);
+        ctx.drawImage(fantasmaImg, this.x, this.y, 50, 50);
     }
 }
 
-let personatge1 = new personatge(10, 30, 'Thor', "blue");
-let personatge2 = new personatge(10, 100, 'Hulk', "green");
-let personatge3 = new personatge(10, 200, 'Ironman', "red");
+let fantasma1 = new fantasma(10, 30);
+let fantasma2 = new fantasma(10, 100);
+let fantasma3 = new fantasma(10, 200);
 
 function inici() {
     canvas = document.getElementById('canvas');
@@ -52,17 +50,14 @@ function inici() {
 function principal() {
     esborrarCanvas();
 
-    personatge1.dibuixa();
-    personatge1.mou(5);
-    personatge1.saludo();
+    fantasma1.dibuixa('pacman/f-rojo.png');
+    fantasma1.mou(5);
 
-    personatge2.dibuixa();
-    personatge2.mou(10);
-    personatge2.saludo();
+    fantasma2.dibuixa('pacman/f-amarillo.png');
+    fantasma2.mou(10);
 
-    personatge3.dibuixa();
-    personatge3.mou(15);
-    personatge3.saludo();
+    fantasma3.dibuixa('pacman/f-verde.png');
+    fantasma3.mou(15);
 }
 
 function esborrarCanvas() {
