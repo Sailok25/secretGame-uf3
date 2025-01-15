@@ -52,16 +52,16 @@ function inici() {
 function principal() {
     esborrarCanvas();
 
-    personatge1.mou(5);
     personatge1.dibuixa();
+    personatge1.mou(5);
     personatge1.saludo();
 
-    personatge2.mou(10);
     personatge2.dibuixa();
+    personatge2.mou(10);
     personatge2.saludo();
 
-    personatge3.mou(15);
     personatge3.dibuixa();
+    personatge3.mou(15);
     personatge3.saludo();
 }
 
