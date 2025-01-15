@@ -9,4 +9,6 @@ game2 -> moviment per teclat 2 formes
 game3 -> moviment del personatge amb ratolí
       -> utilització de canvas
 
-game4 ->
+game4 -> objecte d'un personatge en moviment
+
+game5 -> 
