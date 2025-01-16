@@ -7,35 +7,7 @@ var fps = 20;
 document.addEventListener('DOMContentLoaded', inici);
 
 // Declarar objeto personaje y sus atributos
-// let objecte = function(x, y){
-//     this.x = x;
-//     this.y = y;
 
-//     this.dreta = true;
-
-//     this.mou = function (velocitat) {
-//         if (this.dreta == true){
-//             if (this.x < 470) {
-//                 this.x += velocitat;              
-//             } else{
-//                 this.dreta = false;
-//             }
-//         } else{
-//             if (this.x > 5) {
-//                 this.x -= velocitat;
-//             } else{
-//                 this.dreta = true;
-//             }
-//         }
-//     }
-
-//     this.dibuixa = function (imatge) {
-//         objecteImg = new Image();
-//         objecteImg.src = imatge;
-
-//         ctx.drawImage(objecteImg, this.x, this.y, 50, 50);
-//     }
-// }
 
 // // Declarem nous objectes amb els seus atributs
 // let cactus = new objecte (10, 30)
@@ -72,7 +44,7 @@ let personatge = function(x, y){
 
 
 // Crea un personatge: Dino 
-let dino = new personatge(10,30)
+let dino = new personatge(10,120)
 
 
 // Inicia el canva

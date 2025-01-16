@@ -17,3 +17,7 @@
 6. Asignació de tecles (adalt i baix)
 
 7. Els ocells apareixen de forma random
+
+comentri sprite:
+-> imatge, coordX_sprite, coordY_sprite, ample_sprite, alto_sprite, posX_canvas, posY_canvas, ample_canvas, alto_canvas
+exemple: ctx.drawImage(dinoImg, this.width, this.height, 98, 98, 30, 150, 60, 80)
