@@ -15,3 +15,9 @@ game4 -> objecte personatge i diferents mètodes
 game5 -> utilitzat imatges al canvas
       -> moure amb els events de teclat un protagonista
       -> ficar un text al canvas
+
+game6 -> funció requestAnimationFrame com a substitut de la funció setInterval
+
+game7 -> crear animació dintre del canvas amb una imatge sprite de frames iguals
+
+game8 -> crear animació dintre del canvas amb una imatge sprite de frame diferents
