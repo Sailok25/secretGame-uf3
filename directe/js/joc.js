@@ -40,7 +40,9 @@ let dinosaure = function (x, y) {
     this.ajupir = function () {
         this.ajupit = true;
         this.animacioActual = dinosaure_ajupit;
+        // this.amplada = 118;
         this.alcada = 60;
+        this.y = 320;
     }
 
     this.aixecar = function () {
@@ -164,14 +166,15 @@ function inici() {
             }
         };
 
-        dinosaure1 = new dinosaure(100, canvas.height - 110); // Dino Trex
+        dinosaure1 = new dinosaure(100, canvas.height -110); // Dino Trex
         cactus1 = new enemic(canvas.width, canvas.height - 96, 44, 80, 12, cactus1_animacio); // Cactus sobre el suelo
         ocell1 = new enemic(canvas.width, 200, 80, 70, 18, ocell1_animacio); // Pájaro1
-        ocell2 = new enemic(canvas.width, 200, 80, 70, 18, ocell2_animacio); // Pájaro2
-        nube1 = new enemic(canvas.width, 20, 40, 21, 5, nube1_animacio); // Nube1
-        nube2 = new enemic(canvas.width, 83, 120, 25, 7, nube1_animacio); // Nube2
-        nube3 = new enemic(canvas.width, 154, 100, 13, 6, nube1_animacio); // Nube3
-        nube4 = new enemic(canvas.width, 59, 50, 20, 8, nube1_animacio); // Nube4
+        ocell2 = new enemic(canvas.width, 320, 80, 70, 15, ocell2_animacio); // Pájaro2
+        ocell3 = new enemic(canvas.width, 250, 80, 70, 13, ocell2_animacio); // Pájaro2
+        nube1 = new enemic(canvas.width, 20, 80, 29, 5, nube1_animacio); // Nube1
+        nube2 = new enemic(canvas.width, 83, 80, 29, 7, nube1_animacio); // Nube2
+        nube3 = new enemic(canvas.width, 154, 80, 29, 6, nube1_animacio); // Nube3
+        nube4 = new enemic(canvas.width, 59, 80, 29, 8, nube1_animacio); // Nube4
         nube5 = new enemic(canvas.width, 38, 80, 29, 4, nube1_animacio); // Nube5
 
         setInterval(principal, 1000 / fps);
@@ -202,6 +205,8 @@ function principal() {
     ocell1.mou();
     ocell2.dibuixa();
     ocell2.mou();
+    ocell3.dibuixa();
+    ocell3.mou();
 
     dinosaure1.dibuixa();
     dinosaure1.actualitzar();

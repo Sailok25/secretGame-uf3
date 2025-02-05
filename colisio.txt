@@ -1,0 +1,15 @@
+dinotop =
+dinobottom = 
+cactustop = 
+cactusbottom = 
+dinoleft = dino.x
+dinoright = dino.y
+cactusleft = dino.x
+cactusright = dino.y
+
+
+if((dinobottom < cactustop) || (cactustop < dinobottom) || (dinoleft < cactusright) || (dinoright > cactusleft)) {
+    console.log("no colisio");
+} else{
+    console.log("colisio");
+}
