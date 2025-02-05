@@ -40,7 +40,6 @@ let dinosaure = function (x, y) {
     this.ajupir = function () {
         this.ajupit = true;
         this.animacioActual = dinosaure_ajupit;
-        // this.amplada = 118;
         this.alcada = 60;
         this.y = 320;
     }
@@ -49,6 +48,7 @@ let dinosaure = function (x, y) {
         this.ajupit = false;
         this.animacioActual = dinosaure_trex;
         this.alcada = 94;
+        this.y = this.inicialY;
     }
 
     this.actualitzar = function () {
@@ -166,7 +166,7 @@ function inici() {
             }
         };
 
-        dinosaure1 = new dinosaure(100, canvas.height -110); // Dino Trex
+        dinosaure1 = new dinosaure(100, canvas.height - 110); // Dino Trex
         cactus1 = new enemic(canvas.width, canvas.height - 96, 44, 80, 12, cactus1_animacio); // Cactus sobre el suelo
         ocell1 = new enemic(canvas.width, 200, 80, 70, 18, ocell1_animacio); // Pájaro1
         ocell2 = new enemic(canvas.width, 320, 80, 70, 15, ocell2_animacio); // Pájaro2
@@ -220,7 +220,9 @@ document.addEventListener('keydown', (tecla) => {
     if (tecla.key == 'ArrowUp') {
         dinosaure1.saltar();
     }
+});
 
+document.addEventListener('keydown', (tecla) => {
     if (tecla.key == 'ArrowDown') {
         dinosaure1.ajupir();
     }
