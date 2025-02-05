@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game 8</title>
     <script src="js/game8.js"></script>
+    <style>
+        body, html{
+            margin:0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body{
+            display: flex;
+        }
+
+        canvas{
+            width: 100%;
+            object-fit: contain;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+        }
+    </style>
 </head>
-<body style="width: 1000px; margin:0 auto;">
-    <h1>Game 8</h1>
-    <canvas id="canvas" width="1000" height="300" style="border: 1px solid black;"></canvas>
+<body>
+    <!-- <h1>Game 8</h1> -->
+    <canvas id="canvas" style="border: 1px solid black;"></canvas>
 </body>
 </html>

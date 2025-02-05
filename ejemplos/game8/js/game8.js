@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
             // Per dibuixar el canvas de l'animació
             //imatge, coordX_sprite, coordY_sprite, ample_sprite, posX_canvas, posY_canvas, ample_canvas, alt_canvas, ample_canvas, alto_canvas
-            ctx.drawImage(sprite, frame.x, frame.y, frame.width, frame.height, 40, 30, frame.width, frame.height);
+            ctx.drawImage(sprite, frame.x, frame.y, frame.width, frame.height, 40, 30, frame.width/2, frame.height/2);
 
         }, 100);
     }
