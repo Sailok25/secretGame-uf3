@@ -3,6 +3,9 @@ var canvas;
 var ctx;
 var fps = 20;
 var sprite;
+var puntuacio = 0;
+var puntuacioMaxima = 0;
+var partidaFinalitzada = false;
 
 document.addEventListener('DOMContentLoaded', inici);
 
@@ -111,7 +114,7 @@ function inici() {
 
         dinosaure_salta = [
             { x: 1338, y: 2, amplada: 88, alcada: 94 },
-            { x: 1426, y: 2, amplada: 88, alcada: 94 }
+            { x: 1338, y: 2, amplada: 88, alcada: 94 },
         ];
 
         dinosaure_ajupit = [
@@ -210,6 +213,8 @@ function principal() {
 
     dinosaure1.dibuixa();
     dinosaure1.actualitzar();
+
+    actualitzarPuntuacio();
 }
 
 function esborrarCanvas() {
@@ -233,3 +238,22 @@ document.addEventListener('keyup', (tecla) => {
         dinosaure1.aixecar();
     }
 });
+
+function actualitzarPuntuacio() {
+    ctx.font = "20px Impact";
+    ctx.fillStyle = "grey";
+    ctx.fillText("HI  " + puntuacioMaxima + "        " +  puntuacio, 850, 40);
+    puntuacio++;
+}
+
+
+function guardarPuntuacio() {
+    console.log("Puntuacio: " + puntuacio)
+    max = localStorage.getItem("puntuacioMaxima")
+    if (max == null) {
+        localStorage.setItem("puntuacioMaxima", puntuacio);
+    } else if (max < puntuacio) {
+        localStorage.setItem("puntuacioMaxima", puntuacio);
+    }
+    puntuacioMaxima = max
+}

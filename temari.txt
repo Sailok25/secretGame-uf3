@@ -20,4 +20,6 @@ game6 -> funció requestAnimationFrame com a substitut de la funció setInterval
 
 game7 -> crear animació dintre del canvas amb una imatge sprite de frames iguals
 
-game8 -> crear animació dintre del canvas amb una imatge sprite de frame diferents
+game8 -> crear animació dintre del canvas amb una imatge sprite de frame diferents (responsive)
+
+game9 -> aplicar colisions a personatge
