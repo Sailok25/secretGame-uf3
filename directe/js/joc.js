@@ -6,6 +6,8 @@ var sprite;
 var puntuacio = 0;
 var puntuacioMaxima = 0;
 var partidaFinalitzada = false;
+var objecteAleatoriOcell = 0;
+var objecteAleatoriCactus = 0;
 
 document.addEventListener('DOMContentLoaded', inici);
 
@@ -65,7 +67,69 @@ let dinosaure = function (x, y) {
     }
 }
 
-let enemic = function (x, y, amplada, alcada, velocitat, animacio) {
+let enemic_ocell = function (x, y, amplada, alcada, velocitat, animacio) {
+    this.x = x;
+    this.y = y;
+    this.amplada = amplada;
+    this.alcada = alcada;
+    this.velocitat = velocitat;
+    this.animacioActual = animacio;
+    this.fotogramaActual = 0;
+
+    this.dibuixa = function () {
+        let fotograma = this.animacioActual[this.fotogramaActual];
+        ctx.drawImage(
+            sprite,
+            fotograma.x, fotograma.y, fotograma.amplada, fotograma.alcada,
+            this.x, this.y, this.amplada, this.alcada
+        );
+
+        this.fotogramaActual = (this.fotogramaActual + 1) % this.animacioActual.length;
+    }
+
+    this.mou = function () {
+        this.x -= this.velocitat;
+
+        if (this.x + this.amplada < 0) {
+            this.x = canvas.width;
+            objecteAleatoriOcell = Math.floor(Math.random() * 3);
+        }
+    }
+}
+
+let enemic_cactus = function (x, y, amplada, alcada, velocitat, animacio) {
+    this.x = x;
+    this.y = y;
+    this.amplada = amplada;
+    this.alcada = alcada;
+    this.velocitat = velocitat;
+    this.animacioActual = animacio;
+    this.fotogramaActual = 0;
+
+    this.dibuixa = function () {
+        let fotograma = this.animacioActual[this.fotogramaActual];
+        ctx.drawImage(
+            sprite,
+            fotograma.x, fotograma.y, fotograma.amplada, fotograma.alcada,
+            this.x, this.y, this.amplada, this.alcada
+        );
+
+        this.fotogramaActual = (this.fotogramaActual + 1) % this.animacioActual.length;
+    }
+
+    this.mou = function () {
+        this.x -= this.velocitat;
+
+        if (this.x + this.amplada < 0) {
+            this.x = canvas.width;
+            objecteAleatoriCactus = Math.floor(Math.random() % 1);
+        }
+    }
+}
+
+
+
+let nuvol = function (x, y, amplada, alcada, velocitat, animacio) {
     this.x = x;
     this.y = y;
     this.amplada = amplada;
@@ -93,6 +157,10 @@ let enemic = function (x, y, amplada, alcada, velocitat, animacio) {
         }
     }
 }
+
+
+let arrayEnemicsOcell=[];
+let arrayEnemicsCactus=[];
 
 let dinosaure1;
 let cactus1;
@@ -131,9 +199,13 @@ function inici() {
             { x: 260, y: 14, amplada: 92, alcada: 68 },
             { x: 352, y: 14, amplada: 92, alcada: 68 }
         ];
-
         
         ocell2_animacio = [
+            { x: 260, y: 14, amplada: 92, alcada: 68 },
+            { x: 352, y: 14, amplada: 92, alcada: 68 }
+        ];
+
+        ocell3_animacio = [
             { x: 260, y: 14, amplada: 92, alcada: 68 },
             { x: 352, y: 14, amplada: 92, alcada: 68 }
         ];
@@ -170,17 +242,21 @@ function inici() {
         };
 
         dinosaure1 = new dinosaure(100, canvas.height - 110); // Dino Trex
-        cactus1 = new enemic(canvas.width, canvas.height - 96, 44, 80, 12, cactus1_animacio); // Cactus sobre el suelo
-        ocell1 = new enemic(canvas.width, 200, 80, 70, 18, ocell1_animacio); // Pájaro1
-        ocell2 = new enemic(canvas.width, 320, 80, 70, 15, ocell2_animacio); // Pájaro2
-        ocell3 = new enemic(canvas.width, 250, 80, 70, 13, ocell2_animacio); // Pájaro2
-        nube1 = new enemic(canvas.width, 20, 80, 29, 5, nube1_animacio); // Nube1
-        nube2 = new enemic(canvas.width, 83, 80, 29, 7, nube1_animacio); // Nube2
-        nube3 = new enemic(canvas.width, 154, 80, 29, 6, nube1_animacio); // Nube3
-        nube4 = new enemic(canvas.width, 59, 80, 29, 8, nube1_animacio); // Nube4
-        nube5 = new enemic(canvas.width, 38, 80, 29, 4, nube1_animacio); // Nube5
+        cactus1 = new enemic_cactus(canvas.width, canvas.height - 96, 44, 80, 12, cactus1_animacio); // Cactus sobre el suelo
+        ocell1 = new enemic_ocell(canvas.width, 200, 80, 70, 18, ocell1_animacio); // Pájaro1
+        ocell2 = new enemic_ocell(canvas.width, 320, 80, 70, 15, ocell2_animacio); // Pájaro2
+        ocell3 = new enemic_ocell(canvas.width, 250, 80, 70, 13, ocell3_animacio); // Pájaro2
+        nube1 = new nuvol(canvas.width, 20, 80, 29, 5, nube1_animacio); // Nube1
+        nube2 = new nuvol(canvas.width, 83, 80, 29, 7, nube1_animacio); // Nube2
+        nube3 = new nuvol(canvas.width, 154, 80, 29, 6, nube1_animacio); // Nube3
+        nube4 = new nuvol(canvas.width, 59, 80, 29, 8, nube1_animacio); // Nube4
+        nube5 = new nuvol(canvas.width, 38, 80, 29, 4, nube1_animacio); // Nube5
 
         setInterval(principal, 1000 / fps);
+
+        arrayEnemicsCactus.push(cactus1);
+
+        arrayEnemicsOcell.push(ocell1, ocell2, ocell3);
     };
 }
 
@@ -189,9 +265,6 @@ function principal() {
 
     suelo.dibuixa();
     suelo.mou();
-
-    cactus1.dibuixa();
-    cactus1.mou();
 
     nube1.dibuixa();
     nube1.mou();
@@ -204,17 +277,12 @@ function principal() {
     nube5.dibuixa();
     nube5.mou();
 
-    ocell1.dibuixa();
-    ocell1.mou();
-    ocell2.dibuixa();
-    ocell2.mou();
-    ocell3.dibuixa();
-    ocell3.mou();
-
     dinosaure1.dibuixa();
     dinosaure1.actualitzar();
 
     actualitzarPuntuacio();
+
+    obstaclealeatoris();
 }
 
 function esborrarCanvas() {
@@ -256,4 +324,23 @@ function guardarPuntuacio() {
         localStorage.setItem("puntuacioMaxima", puntuacio);
     }
     puntuacioMaxima = max
+}
+
+function obstaclealeatoris() {
+    arrayEnemicsCactus[objecteAleatoriCactus].dibuixa();
+    arrayEnemicsCactus[objecteAleatoriCactus].mou();
+
+    arrayEnemicsOcell[objecteAleatoriOcell].dibuixa();
+    arrayEnemicsOcell[objecteAleatoriOcell].mou();
+
+
+    // cactus1.dibuixa();
+    // cactus1.mou();
+
+    // ocell1.dibuixa();
+    // ocell1.mou();
+    // ocell2.dibuixa();
+    // ocell2.mou();
+    // ocell3.dibuixa();
+    // ocell3.mou();
 }
