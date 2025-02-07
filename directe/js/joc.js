@@ -122,12 +122,10 @@ let enemic_cactus = function (x, y, amplada, alcada, velocitat, animacio) {
 
         if (this.x + this.amplada < 0) {
             this.x = canvas.width;
-            objecteAleatoriCactus = Math.floor(Math.random() % 1);
+            objecteAleatoriCactus = Math.floor(Math.random() * 6);
         }
     }
 }
-
-
 
 let nuvol = function (x, y, amplada, alcada, velocitat, animacio) {
     this.x = x;
@@ -165,7 +163,7 @@ let arrayEnemicsCactus=[];
 let dinosaure1;
 let cactus1;
 let ocell1;
-let suelo;
+let terra;
 
 function inici() {
     canvas = document.getElementById('canvas');
@@ -190,10 +188,39 @@ function inici() {
             { x: 1984, y: 36, amplada: 118, alcada: 60 }
         ];
 
+
+
         cactus1_animacio = [
             { x: 446, y: 2, amplada: 34, alcada: 70 },
             { x: 446, y: 2, amplada: 34, alcada: 70 }
         ];
+
+        cactus2_animacio = [
+            { x: 514, y: 2, amplada: 34, alcada: 70 },
+            { x: 514, y: 2, amplada: 34, alcada: 70 }
+        ];
+
+        cactus3_animacio = [
+            { x: 582, y: 2, amplada: 34, alcada: 70 },
+            { x: 582, y: 2, amplada: 34, alcada: 70 }
+        ];
+
+        cactus4_animacio = [
+            { x: 850, y: 2, amplada: 102, alcada: 101 },
+            { x: 850, y: 2, amplada: 102, alcada: 101 }
+        ];
+
+        cactus5_animacio = [
+            { x: 752, y: 2, amplada: 50, alcada: 100 },
+            { x: 752, y: 2, amplada: 50, alcada: 100 }
+        ];
+
+        cactus6_animacio = [
+            { x: 702, y: 2, amplada: 48, alcada: 100 },
+            { x: 702, y: 2, amplada: 48, alcada: 100 }
+        ];
+
+
 
         ocell1_animacio = [
             { x: 260, y: 14, amplada: 92, alcada: 68 },
@@ -210,13 +237,16 @@ function inici() {
             { x: 352, y: 14, amplada: 92, alcada: 68 }
         ];
 
+
+
         nube1_animacio = [
             { x: 166, y: 2, amplada: 92, alcada: 27 },
             { x: 166, y: 2, amplada: 92, alcada: 27 }
         ];
 
-        // Definir el suelo
-        suelo = {
+
+
+        terra = {
             x: 0,
             y: canvas.height - 46,
             amplada: 2406,
@@ -234,7 +264,7 @@ function inici() {
             mou: function () {
                 this.x -= this.velocitat;
 
-                // Repetir el suelo cuando sale del canvas
+                // Repetir el terra cuando sale del canvas
                 if (this.x + this.amplada < canvas.width) {
                     this.x = 0;
                 }
@@ -242,7 +272,12 @@ function inici() {
         };
 
         dinosaure1 = new dinosaure(100, canvas.height - 110); // Dino Trex
-        cactus1 = new enemic_cactus(canvas.width, canvas.height - 96, 44, 80, 12, cactus1_animacio); // Cactus sobre el suelo
+        cactus1 = new enemic_cactus(canvas.width, canvas.height - 96, 44, 80, 12, cactus1_animacio); // Cactus1
+        cactus2 = new enemic_cactus(canvas.width, canvas.height - 96, 44, 80, 12, cactus2_animacio); // Cactus1
+        cactus3 = new enemic_cactus(canvas.width, canvas.height - 96, 44, 80, 12, cactus3_animacio); // Cactus1
+        cactus4 = new enemic_cactus(canvas.width, canvas.height - 96, 102, 80, 12, cactus4_animacio); // Cactus1
+        cactus5 = new enemic_cactus(canvas.width, canvas.height - 96, 50, 80, 12, cactus5_animacio); // Cactus1
+        cactus6 = new enemic_cactus(canvas.width, canvas.height - 96, 48, 80, 12, cactus6_animacio); // Cactus1
         ocell1 = new enemic_ocell(canvas.width, 200, 80, 70, 18, ocell1_animacio); // Pájaro1
         ocell2 = new enemic_ocell(canvas.width, 320, 80, 70, 15, ocell2_animacio); // Pájaro2
         ocell3 = new enemic_ocell(canvas.width, 250, 80, 70, 13, ocell3_animacio); // Pájaro2
@@ -254,7 +289,7 @@ function inici() {
 
         setInterval(principal, 1000 / fps);
 
-        arrayEnemicsCactus.push(cactus1);
+        arrayEnemicsCactus.push(cactus1, cactus2, cactus3, cactus4, cactus5, cactus6);
 
         arrayEnemicsOcell.push(ocell1, ocell2, ocell3);
     };
@@ -263,8 +298,8 @@ function inici() {
 function principal() {
     esborrarCanvas();
 
-    suelo.dibuixa();
-    suelo.mou();
+    terra.dibuixa();
+    terra.mou();
 
     nube1.dibuixa();
     nube1.mou();
