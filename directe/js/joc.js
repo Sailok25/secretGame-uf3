@@ -8,6 +8,7 @@ var puntuacioMaxima = 0;
 var partidaFinalitzada = false;
 var objecteAleatoriOcell = 0;
 var objecteAleatoriCactus = 0;
+let ultimaMillora = 0;
 
 document.addEventListener('DOMContentLoaded', inici);
 
@@ -157,8 +158,8 @@ let nuvol = function (x, y, amplada, alcada, velocitat, animacio) {
 }
 
 
-let arrayEnemicsOcell=[];
-let arrayEnemicsCactus=[];
+let arrayEnemicsOcell = [];
+let arrayEnemicsCactus = [];
 
 let dinosaure1;
 let cactus1;
@@ -226,7 +227,7 @@ function inici() {
             { x: 260, y: 14, amplada: 92, alcada: 68 },
             { x: 352, y: 14, amplada: 92, alcada: 68 }
         ];
-        
+
         ocell2_animacio = [
             { x: 260, y: 14, amplada: 92, alcada: 68 },
             { x: 352, y: 14, amplada: 92, alcada: 68 }
@@ -318,6 +319,9 @@ function principal() {
     actualitzarPuntuacio();
 
     obstaclealeatoris();
+
+    actualitzarVelocitat();
+
 }
 
 function esborrarCanvas() {
@@ -345,7 +349,7 @@ document.addEventListener('keyup', (tecla) => {
 function actualitzarPuntuacio() {
     ctx.font = "20px Impact";
     ctx.fillStyle = "grey";
-    ctx.fillText("HI  " + puntuacioMaxima + "        " +  puntuacio, 850, 40);
+    ctx.fillText("HI  " + puntuacioMaxima + "        " + puntuacio, 850, 40);
     puntuacio++;
 }
 
@@ -378,4 +382,24 @@ function obstaclealeatoris() {
     // ocell2.mou();
     // ocell3.dibuixa();
     // ocell3.mou();
+}
+
+function actualitzarVelocitat() {
+    if (puntuacio >= ultimaMillora + 300) {
+        ultimaMillora = puntuacio;
+
+        // recorrer el array per a que tots els ocells del array augmentin
+        arrayEnemicsOcell.forEach(ocell => {
+            ocell.velocitat += 1.5;
+        });
+
+        // recorrer el array per a que tots els cactus del array augmentin
+        arrayEnemicsCactus.forEach(cactus => {
+            cactus.velocitat += 1.5;
+        });
+
+        terra.velocitat += 1.5; // no recorre array peque nomes es 1 terra    }
+
+        console.log(`Velocitat actual - Terra: ${terra.velocitat}, Ocell: ${arrayEnemicsOcell[0]?.velocitat}, Cactus: ${arrayEnemicsCactus[0]?.velocitat}`);
+    }
 }
