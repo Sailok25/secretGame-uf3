@@ -280,8 +280,8 @@ function inici() {
         cactus5 = new enemic_cactus(canvas.width, canvas.height - 96, 50, 80, 12, cactus5_animacio); // Cactus1
         cactus6 = new enemic_cactus(canvas.width, canvas.height - 96, 48, 80, 12, cactus6_animacio); // Cactus1
         ocell1 = new enemic_ocell(canvas.width, 200, 80, 70, 18, ocell1_animacio); // Pájaro1
-        ocell2 = new enemic_ocell(canvas.width, 320, 80, 70, 15, ocell2_animacio); // Pájaro2
-        ocell3 = new enemic_ocell(canvas.width, 250, 80, 70, 13, ocell3_animacio); // Pájaro2
+        ocell2 = new enemic_ocell(canvas.width, 320, 80, 70, 16, ocell2_animacio); // Pájaro2
+        ocell3 = new enemic_ocell(canvas.width, 250, 80, 70, 14, ocell3_animacio); // Pájaro2
         nube1 = new nuvol(canvas.width, 20, 80, 29, 5, nube1_animacio); // Nube1
         nube2 = new nuvol(canvas.width, 83, 80, 29, 7, nube1_animacio); // Nube2
         nube3 = new nuvol(canvas.width, 154, 80, 29, 6, nube1_animacio); // Nube3
