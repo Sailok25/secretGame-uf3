@@ -19,7 +19,7 @@ let dinosaure = function (x, y) {
     this.alcada = 94;
     this.saltant = false;
     this.ajupit = false;
-    this.alcadaSalt = 100;
+    this.alcadaSalt = 150;
     this.inicialY = y;
     this.animacioActual = dinosaure_trex;
     this.fotogramaActual = 0;
@@ -40,6 +40,7 @@ let dinosaure = function (x, y) {
             this.saltant = true;
             this.y -= this.alcadaSalt;
             this.animacioActual = dinosaure_salta;
+            this.gravetat 
         }
     }
 
@@ -63,7 +64,7 @@ let dinosaure = function (x, y) {
                 this.y = this.inicialY;
                 this.saltant = false;
                 this.animacioActual = dinosaure_trex;
-            }, 300);
+            }, 550);
         }
     }
 }
@@ -322,6 +323,8 @@ function principal() {
 
     actualitzarVelocitat();
 
+    hitbox();
+
 }
 
 function esborrarCanvas() {
@@ -402,4 +405,45 @@ function actualitzarVelocitat() {
 
     }
     console.log(`Velocitat actual - Terra: ${terra.velocitat}, Ocell: ${arrayEnemicsOcell[0].velocitat}, Cactus: ${arrayEnemicsCactus[0].velocitat}`);
+}
+
+function hitbox(){
+    let dinoX = dinosaure1.x + 20;
+    let dinoY = dinosaure1.y;
+    let dinoAmplada = dinoX + dinosaure1.amplada - 20*2;
+    let dinoAlcada = dinoY + dinosaure1.alcada
+    ctx.fillStyle = "red";
+    ctx.fillRect(dinoX, dinoY, dinosaure1.amplada-20*2, dinosaure1.alcada);
+
+    for (let i = 0; i < arrayEnemicsCactus.length; i++) {
+    
+        let cactusX = arrayEnemicsCactus[i].x;
+        let cactusY = arrayEnemicsCactus[i].y;
+        let cactusAmplada = cactusX + arrayEnemicsCactus[i].amplada;
+        let cactusAlcada = cactusY + arrayEnemicsCactus[i].alcada;
+        ctx.fillStyle = "red";
+        ctx.fillRect(cactusX, cactusY, dinosaure1.amplada-20*2, dinosaure1.alcada);
+
+        if (dinoX < cactusAmplada && dinoAmplada > cactusX && dinoY < cactusAlcada && dinoAlcada > cactusY) {
+            console.log("Has perdut");
+            guardarPuntuacio();
+            location.reload();
+        }
+    }
+
+    for (let i = 0; i < arrayEnemicsOcell.length; i++) {
+    
+        let ocellX = arrayEnemicsOcell[i].x;
+        let ocellY = arrayEnemicsOcell[i].y;
+        let ocellAmplada = ocellX + arrayEnemicsOcell[i].amplada;
+        let ocellAlcada = ocellY + arrayEnemicsOcell[i].alcada;
+        ctx.fillStyle = "red";
+        ctx.fillRect(ocellX, ocellY, dinosaure1.amplada-20*2, dinosaure1.alcada);
+
+        if (dinoX < ocellAmplada && dinoAmplada > ocellX && dinoY < ocellAlcada && dinoAlcada > ocellY) {
+            console.log("Has perdut");
+            guardarPuntuacio();
+            location.reload();
+        }
+    }
 }
