@@ -400,6 +400,6 @@ function actualitzarVelocitat() {
 
         terra.velocitat += 1.5; // no recorre array peque nomes es 1 terra    }
 
-        console.log(`Velocitat actual - Terra: ${terra.velocitat}, Ocell: ${arrayEnemicsOcell[0]?.velocitat}, Cactus: ${arrayEnemicsCactus[0]?.velocitat}`);
     }
+    console.log(`Velocitat actual - Terra: ${terra.velocitat}, Ocell: ${arrayEnemicsOcell[0].velocitat}, Cactus: ${arrayEnemicsCactus[0].velocitat}`);
 }
